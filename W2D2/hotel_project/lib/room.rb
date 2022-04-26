@@ -48,10 +48,5 @@ def add_occupant(name)
 end
 
 
-#PART 2
-
-
-
-
 
 end
