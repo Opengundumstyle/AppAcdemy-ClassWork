@@ -61,8 +61,37 @@ end
 
 
 #part 3
+def average_salary
+    sum = 0
+   @employees.each do |employee|
+    sum += @salaries[employee.title]
+   end
+
+   sum / @employees.length
+
+end
 
 
+def close 
+    @employees = []
+    @funding = 0
+end 
 
+
+def acquire(startup)
+    @funding += startup.funding
+    startup.salaries.each do |title,money|
+          if self.salaries[title] == nil
+            self.salaries[title] = money
+          end
+    end
+
+    startup.employees.each do |employee|
+        self.employees << employee
+    end
+    
+    startup.close
+
+end
 
 end
