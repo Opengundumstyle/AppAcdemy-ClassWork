@@ -17,6 +17,23 @@ end
 # Write a method, most_frequent_bigram, that takes in a string and returns the two adjacent letters that appear the
 # most in the string.
 def most_frequent_bigram(str)
+      mostFreq = str[0..1]
+      mostCount = 0 
+     
+      (0...str.length).each do |i|
+             currCount = 0 
+           (0...str.length).each do |j|
+                currCount += 1 if str[i..i+1] == str[j..j+1]
+           end
+      
+        if mostCount < currCount
+            mostCount = currCount
+            mostFreq  = str[i..i+1]
+        end
+            
+      end
+
+      mostFreq
     
 end
 
@@ -24,15 +41,28 @@ end
 class Hash
     # Write a method, Hash#inverse, that returns a new hash where the key-value pairs are swapped
     def inverse
-
+         newHash = {}
+         self.each do |k,v|
+              newHash[v] = k
+         end
+         newHash
     end
+
+
 end
 
 
 class Array
     # Write a method, Array#pair_sum_count, that takes in a target number returns the number of pairs of elements that sum to the given target
     def pair_sum_count(num)
+         numberPairCount = 0
+         self.each_index do |i|
+            (i+1...self.length).each do |j|
+                 numberPairCount += 1 if self[i] + self[j] == num
+            end
+         end
 
+         numberPairCount
     end
 
     # Write a method, Array#bubble_sort, that takes in an optional proc argument.
@@ -49,6 +79,6 @@ class Array
     #
     # This should remind you of the spaceship operator! Convenient :)
     def bubble_sort(&prc)
-
+     
     end
 end
