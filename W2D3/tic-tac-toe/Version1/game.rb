@@ -25,6 +25,26 @@ end
 
 
 
+def self.play
+
+    while @board.empty_positions?
+       @board.print
+       pos = @current_Player.get_position
+       @board.place_mark(pos,@current_Player.mark)
+        if  @board.win?(@current_Player.mark)
+            puts "victory for #{current_Player} "
+            break
+        else
+            Game.switch_turn
+        end
+       
+    end
+
+    puts "Draw!"
+
+
+end
+
 
 
 end
