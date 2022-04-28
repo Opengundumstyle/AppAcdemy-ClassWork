@@ -41,7 +41,7 @@ end
 # composite?(9)     # => true
 # composite?(13)    # => false
 def composite?(num)
-    
+     (2...num).any?{|el| num % el == 0}
 end
 
 
@@ -56,6 +56,9 @@ end
 # find_bigrams("to the moon and back", ["ck", "oo", "ha", "at"])        # => ["ck", "oo"]
 def find_bigrams(str, bigrams)
 
+      bigrams.select {|el|str.include?(el) }
+
+      
 end
 
 class Hash
@@ -74,8 +77,13 @@ class Hash
     # hash_2.my_select                            # => {4=>4}
     def my_select(&prc)
 
-    end
-end
+         prc ||= Proc.new{|k,v| k == v}
+
+         newHash = {}
+         self.each {|k,v| newHash[k] = v if prc.call(k,v) }
+           newHash
+         end   
+   end
 
 class String
     # Write a method, String#substrings, that takes in a optional length argument
