@@ -13,26 +13,30 @@ def longest_streak(str)
 
    while  i < str.length 
 
-        if str[i] == str[i-1] || i == 0
+                if str[i] == str[i-1] || i == 0
 
-            currStreak += str[i]
+                    currStreak += str[i]
 
-        else
+                else
+                    
+                    currStreak = str[i]
+
+                end
+
+            if currStreak.length >= longStr.length 
+
+                        longStr = currStreak
+
+                end
+
             
-            currStreak = str[i]
+            i += 1
+   end
 
-        end
+         
+      return longStr
 
-      if currStreak.length >= longStr.length 
 
-                   longStr = currStreak
-
-         end
-
-      
-      i += 1
-end
-         return longStr
 end
 
 # Examples
