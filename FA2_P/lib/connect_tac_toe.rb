@@ -17,4 +17,12 @@ class ConnectTacToe
         @board.print
         p @current_player.token + " has won!"
     end
+
+
+ def initialize(numStacks,maxHeight)
+      
+ end
+
+
+
 end
