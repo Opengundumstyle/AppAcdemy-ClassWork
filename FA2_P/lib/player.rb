@@ -7,4 +7,13 @@ class Player
         p "player " + @token + ", enter a valid stack index"
         gets.chomp.to_i
     end
+
+
+    def initialize(token)
+        @token = token
+    end
+
+    def token
+        @token
+    end
 end
