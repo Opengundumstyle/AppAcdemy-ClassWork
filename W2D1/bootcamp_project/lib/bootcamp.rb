@@ -1,73 +1,76 @@
 class Bootcamp
 
-    #Part 1
-    def initialize(name,slogan,student_capacity)
-        @name = name
-        @slogan = slogan
-        @student_capacity = student_capacity
-        @students = []
-        @teachers = []
-        @grades = Hash.new{|k,v| k[v] = []}
-    end
-     
-    def name 
-        @name
-    end
-    
-    def slogan
-        @slogan
-    end
+attr_reader :name, :slogan, :teachers , :students
 
-    def teachers
-        @teachers
-    end
+#part 1
+   def initialize(name,slogan,student_capacity)
+     @name = name
+     @slogan = slogan
+     @student_capacity = student_capacity
+     @students = []
+     @teachers = []
+     @grades = Hash.new{|k,v| k[v] = []}
 
-    def students
-        @students
-    end
-
-    def hire(teacher)
-        @teachers.push(teacher)
-    end
-
-    def enroll(student)
-
-        if @students.length  < @student_capacity
-             @students << student
-             true
-        else
-            false
-
-        end
-       
-    end
-
-   def enrolled?(student)
-        return true if @students.include?(student)
-        false
    end
+    
+def hire(teacher)
+    @teachers << teacher
+end
+
+def enroll(student)
+    if @students.length < @student_capacity
+        @students << student
+      
+        return true
+    else
+        return false
+end
+
+end
+
+
+def enrolled?(student)
+ 
+      @students.include?(student)
+
+end
+
+
+ 
 #part 2
 
-  def student_to_teacher_ratio
-      return @students.length  /  @teachers.length
-  end
+def student_to_teacher_ratio
+    @students.length  / @teachers.length
+end
 
-  def add_grade(student, grade)
-        if @students.index(student)
-            @grades[student] << grade
-            true
-        else
-            false
-        end
-  end
+def add_grade(student, grade)
+    if self.enrolled?(student)
+         @grades[student] << grade
+         return true
+    else
+        return false
+         
+    end
+end
 
 
-  def num_grades(student)
-     @grades[student].length
-  end
+def num_grades(student)
 
-  def average_grade(student)
-    return @grades[student].sum / @grades[student].length if @students.include?(student) && @grades[student] != []
-    nil
-  end
+      @grades[student].count
+
+end
+
+
+def average_grade(student)
+     
+    if enrolled?(student)  && num_grades(student) > 0
+        
+        return @grades[student].sum / num_grades(student)
+
+    end
+
+end
+
+
+
 end
