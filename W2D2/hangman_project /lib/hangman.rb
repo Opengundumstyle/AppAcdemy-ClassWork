@@ -46,11 +46,65 @@ end
 
 #part 2
 
+ def try_guess(char)
+     if already_attempted?(char)
+
+        puts 'that has already been attempted'
+        return false
+
+     else
+        if @secret_word.include?(char)
+            indexArr =  get_matching_indices(char)
+            fill_indices(char,indexArr)
+        else
+            @remaining_incorrect_guesses -= 1
+        end
+            @attempted_chars << char
+
+           return true
+
+     end
+    
+ end
+
+
+ def ask_user_for_guess
+   puts 'Enter a char:'
+   guess = gets.chomp
+   try_guess(guess)
+ end
+
+
+ def win?
+    if  @guess_word.join('') == @secret_word
+         puts "WIN"
+         return true
+    else
+         return false
+    end
+ end
 
 
 
+ def lose?
+   if @remaining_incorrect_guesses == 0
+      puts "LOSE"
+      return true
+   else
+      return false
+  end
+end
 
+def game_over?
 
+    if win? || lose?
+        puts @secret_word
+        return true
+    else
+       return false
+    end
+
+end
 
 
 
