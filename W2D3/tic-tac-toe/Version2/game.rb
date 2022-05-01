@@ -5,11 +5,12 @@ require_relative "board.rb"
 
 class Game
     
-   def initialize(player_1,player_2)
+   def initialize(player_1,player_2,n)
          @player_1 = HumanPlayer.new(player_1)
          @player_2 = HumanPlayer.new(player_2)
-         @board = Board.new
+         @board = Board.new(n)
          @current_player = @player_1
+         
 
    end
 
@@ -40,12 +41,7 @@ class Game
         end
 
          puts "sadly its a draw"
-
-   end
-
-
-
-    
+    end
 
 end
 
