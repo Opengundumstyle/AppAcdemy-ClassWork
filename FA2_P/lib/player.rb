@@ -8,12 +8,4 @@ class Player
         gets.chomp.to_i
     end
 
-
-    def initialize(token)
-        @token = token
-    end
-
-    def token
-        @token
-    end
 end
