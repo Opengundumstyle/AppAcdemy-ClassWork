@@ -65,7 +65,55 @@ def median
 
     
 
+def my_count(value)
+    
+    count = 0
+      self.each do |el|
+          count += 1 if el ==value
 
+      end
+
+    count
+
+end
+
+
+def my_index(value)
+   self.each_index do |i|
+      return i if self[i] == value
+   end
+
+   nil
+
+end
+
+def my_uniq
+
+ newArr = []
+
+ self.each do |el|
+   newArr << el unless newArr.include?(el)
+ end
+
+ newArr
+
+end
+
+
+def  my_transpose
+
+  transArr =[]
+    (0...self[0].length).each do |i|
+           temp = []
+         self.each do |subArr|
+                temp << subArr[i]
+      end
+          transArr << temp
+    end
+
+    transArr
+
+end
 
 
 
