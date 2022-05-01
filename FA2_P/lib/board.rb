@@ -38,15 +38,44 @@ class Board
 
 
   def vertical_winner?(token)
-
-
+       @stacks.any?{|subArr| subArr.count{|el| el == token} == @max_height}
+      
   end
 
 
   def horizontal_winner?(token)
+        
+        #  (0...@max_height).each do |col|
+        #            streak = 0
+        #     (0...@stacks.length).each do |row|
 
+        #             streak += 1 if @stacks[row][col] == token
+        #     end
+
+        #      return true if streak == @stacks.length
+
+        #  end
+
+        #  false
+
+       (0...@max_height).each do |i|
+          return true if @stacks.all? {|stack| stack[i] == token}
+  end
+          
+          false
+  end
+
+
+  def winner?(token)
+    
+        vertical_winner?(token) || horizontal_winner?(token)
 
   end
+
+
+
+
+
 
 
 

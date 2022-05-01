@@ -1,4 +1,9 @@
 class Player
+ attr_reader :token
+    def initialize(token)
+       @token = token
+       
+    end
 
 
     # This Player#get_stack_index method is given for free and does not need to be modified
@@ -7,5 +12,9 @@ class Player
         p "player " + @token + ", enter a valid stack index"
         gets.chomp.to_i
     end
+
+   
+
+
 
 end
