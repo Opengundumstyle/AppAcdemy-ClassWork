@@ -4,6 +4,8 @@ class Startup
 
     attr_reader :name,:funding,:salaries,:employees
 
+     attr_writer :funding
+
     def initialize(name,funding,salaries)
          @name = name
          @funding = funding 
@@ -73,6 +75,45 @@ class Startup
 
 
 
+ #part 3
+
+ def average_salary
+
+        sum = 0
+        @employees.each do |employee|
+            
+            title = employee.title
+
+            sum += @salaries[title]
+
+        end
+
+        sum / size
+  
+ end
+
+
+def close
+   @employees = []
+   @funding = 0
+
+end
+
+
+def acquire(startup)
+   
+    @funding += startup.funding
+    startup.salaries.each do |title,money|
+
+        @salaries[title] = money unless  @salaries.has_key?(title)
+
+    end
+
+    @employees += startup.employees
+     
+    startup.close
+
+end
 
 
 end
