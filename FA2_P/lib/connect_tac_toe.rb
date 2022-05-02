@@ -20,6 +20,32 @@ class ConnectTacToe
         p @current_player.token + " has won!"
     end
 
+def initialize(stacks,max_height)
+
+    @board = Board.new(stacks,max_height)
+    @player_1 = Player.new('y')
+    @player_2 = Player.new('b')
+    @current_player = @player_1
+
+end
+
+def switch_players!
+    if @current_player == @player_1
+        @current_player = @player_2
+    else
+        @current_player = @player_1
+end
+
+end
+
+def play_turn
+    getIdx = @current_player.get_stack_index
+    getToken = @current_player.token
+    @board.add(getToken,getIdx)
+
+    switch_players!
+end
+
 
 end
 
