@@ -39,4 +39,63 @@ def place_mark(position,value)
      end
 end
 
+def print
+   @board.each do |row|
+
+    puts row.join(" ")
+
+   end
+
+end
+
+
+def win_row?(mark)
+   @board.any?{|row| row.all?{|el| el == mark}}
+
+end
+
+
+def win_col?(mark)
+    length = @board.length 
+    (0...length).each do |i|
+         return true if @board.all?{|row| row[i] == mark} 
+    end
+     
+    false
+
+end
+
+def win_diagonal?(mark)
+     
+     left_to_right = (0...@board.length).all? { |i| @board[i][@board.length - 1 - i]  == mark }
+
+
+
+
+
+     right_to_left = (0...@board.length).all? { |i| @board[i][i]  == mark }
+
+
+        
+      left_to_right || right_to_left
+
+end
+
+
+def win?(mark)
+    
+   win_col?(mark) || win_row?(mark) || win_diagonal?(mark)
+ 
+end 
+
+def empty_positions?
+    @board.each{|row| return true if row.any?{|el| el == "_"}}
+
+    false
+
+end
+
+
+
+
 end
