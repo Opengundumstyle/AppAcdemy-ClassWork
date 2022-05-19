@@ -3,8 +3,9 @@ require_relative "Employee"
 
 class Manager < Employee
 
-     attr_reader :employees
-     
+      
+     attr_reader :salary
+
     def initialize(name,title,salary,boss = nil)
          super
          @employees = []
@@ -20,7 +21,7 @@ class Manager < Employee
 
             if @title == "Founder"
 
-                get_salary = employee.employees.map{|subordinate| subordinate.salary}.sum
+                get_salary += employee.employees.map{|subordinate| subordinate.salary}.sum
     
              end
 

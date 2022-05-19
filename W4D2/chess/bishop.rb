@@ -1,16 +1,24 @@
 require_relative 'piece'
+require_relative 'sliding'
 
 class Bishop < Piece
+
+  def get_board
+
+        return self.board
+
+  end
 include Sliding
-    def move_dirs
+ 
+def name
+   :b
+end
 
-        return Sliding.horizontal
-        # horizontal && vertical
-        # [-1,0], [1,0],[0,-1],[0,1]
-        # available position [.....]
-
-      #diagonal 
-      #[1,1],[-1,1],[1,-1],[-1,-1]
-      #available position [....]
-    end
+def move_dirs
+    
+    self.diagonal
+    
+end
+ 
+  
 end

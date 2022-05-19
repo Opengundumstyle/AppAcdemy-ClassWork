@@ -2,9 +2,9 @@ require "employee"
 
 class Startup
 
-    attr_reader :name,:funding,:salaries,:employees
+    attr_accessor :name,:funding,:salaries,:employees
 
-     attr_writer :funding
+    
 
     def initialize(name,funding,salaries)
          @name = name
@@ -103,13 +103,14 @@ end
 def acquire(startup)
    
     @funding += startup.funding
+
     startup.salaries.each do |title,money|
 
         @salaries[title] = money unless  @salaries.has_key?(title)
 
     end
 
-    @employees += startup.employees
+        self.employees += startup.employees
      
     startup.close
 

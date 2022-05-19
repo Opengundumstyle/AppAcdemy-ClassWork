@@ -17,7 +17,7 @@
 
 
 def vigenere_cipher(word,encrypt)
-
+   
 
 end
 

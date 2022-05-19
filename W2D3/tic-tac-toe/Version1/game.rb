@@ -12,7 +12,7 @@ def initialize(player_1,player_2)
 end
 
 
-def self.switch_turn
+def switch_turn
 
     if @current_Player == @player_1
         @current_Player = @player_2
@@ -25,17 +25,17 @@ end
 
 
 
-def self.play
+def play
 
     while @board.empty_positions?
        @board.print
        pos = @current_Player.get_position
        @board.place_mark(pos,@current_Player.mark)
         if  @board.win?(@current_Player.mark)
-            puts "victory for #{current_Player} "
-            break
+            puts "victory for " + @current_Player.mark.to_s
+            return
         else
-            Game.switch_turn
+            switch_turn
         end
        
     end
@@ -48,3 +48,4 @@ end
 
 
 end
+

@@ -3,8 +3,6 @@ require_relative "Manager"
 
 class Employee 
 
-    
-
     def initialize(name,title,salary,boss)
      
 
@@ -21,8 +19,9 @@ class Employee
         @salary * multiplier
           
     end
-
     
+    protected
     attr_reader :salary
-
+    
 end
+
