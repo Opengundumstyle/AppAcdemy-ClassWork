@@ -1,0 +1,901 @@
+  [1m[35m (186.4ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (107.1ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (15.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateComment (20220522174230)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying NOT NULL, "video_id" integer NOT NULL, "commenter_id" integer NOT NULL, "parent_commenter_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20220522174230_create_comment.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_video_id" ON "comments"  ("video_id")[0m
+  ↳ db/migrate/20220522174230_create_comment.rb:12
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commenter_id" ON "comments"  ("commenter_id")[0m
+  ↳ db/migrate/20220522174230_create_comment.rb:13
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_parent_commenter_id" ON "comments"  ("parent_commenter_id")[0m
+  ↳ db/migrate/20220522174230_create_comment.rb:14
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522174230"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-22 17:54:22.181067"], ["updated_at", "2022-05-22 17:54:22.181067"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveparentCommenterIdFromComments (20220522180259)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveparentCommenterIdFromComments (20220522180259)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveparentCommenterIdFromComments (20220522183710)
+  [1m[35m (4.0ms)[0m  [1m[35mDROP INDEX  "index_comments_on_parent_commenter_id"[0m
+  ↳ db/migrate/20220522183710_removeparent_commenter_id_from_comments.rb:7
+  [1m[35m (2.3ms)[0m  [1m[35mDROP INDEX  "index_comments_on_parent_commenter_id"[0m
+  ↳ db/migrate/20220522183710_removeparent_commenter_id_from_comments.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveparentCommenterIdFromComments (20220522183710)
+  [1m[35m (1.4ms)[0m  [1m[35mDROP INDEX  "index_comments_on_parent_commenter_id"[0m
+  ↳ db/migrate/20220522183710_removeparent_commenter_id_from_comments.rb:7
+  [1m[35m (0.9ms)[0m  [1m[35mDROP INDEX  "index_comments_on_parent_commenter_id"[0m
+  ↳ db/migrate/20220522183710_removeparent_commenter_id_from_comments.rb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveparentCommenterIdFromComments (20220522183710)
+  [1m[35m (1.7ms)[0m  [1m[35mDROP INDEX  "index_comments_on_parent_commenter_id"[0m
+  ↳ db/migrate/20220522183710_removeparent_commenter_id_from_comments.rb:7
+  [1m[35m (1.0ms)[0m  [1m[35mDROP INDEX  "index_comments_on_parent_commenter_id"[0m
+  ↳ db/migrate/20220522183710_removeparent_commenter_id_from_comments.rb:7
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveparentCommenterIdFromComments (20220522183710)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveparentCommenterIdFromComments (20220522183710)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveparentCommenterIdFromComments (20220522183710)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveparentCommenterIdFromComments (20220522183710)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveparentCommenterIdFromComments (20220522183710)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddParentCommentToComments (20220522191044)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddParentCommentToComments (20220522191044)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "comments" ADD "parent_comment_id" integer NOT NULL[0m
+  ↳ db/migrate/20220522191044_add_parent_comment_to_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522191044"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveparentCommenterIdFromComments (20220522191429)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "comments" DROP COLUMN "parent_commenter_id"[0m
+  ↳ db/migrate/20220522191429_removeparent_commenter_id_from_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522191429"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to ChangeParentCommentIdFromComments (20220522192449)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "comments" ALTER COLUMN "parent_comment_id" TYPE integer[0m
+  ↳ db/migrate/20220522192449_change_parent_comment_id_from_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522192449"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to ChangeParentCommentIdFromComments (20220522192647)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "comments" DROP COLUMN "parent_comment_id"[0m
+  ↳ db/migrate/20220522192647_change_parent_comment_id_from_comments.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "comments" ADD "parent_comment_id" integer[0m
+  ↳ db/migrate/20220522192647_change_parent_comment_id_from_comments.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522192647"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddIndexToComments (20220522193148)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_parent_comment_id" ON "comments"  ("parent_comment_id")[0m
+  ↳ db/migrate/20220522193148_add_index_to_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522193148"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "users" ALTER COLUMN "email" TYPE username[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (39.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-1P-migrations_development"[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (35.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-1P-migrations_test"[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (153.9ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_development" ENCODING = 'unicode'[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (70.4ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_test" ENCODING = 'unicode'[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying NOT NULL, "video_id" integer NOT NULL, "commenter_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "parent_comment_id" integer)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commenter_id" ON "comments"  ("commenter_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_parent_comment_id" ON "comments"  ("parent_comment_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_video_id" ON "comments"  ("video_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220522193148)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220522174230),
+(20220522192647),
+(20220522191044),
+(20220522191429);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-22 20:00:46.769212"], ["updated_at", "2022-05-22 20:00:46.769212"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying NOT NULL, "video_id" integer NOT NULL, "commenter_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "parent_comment_id" integer)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commenter_id" ON "comments"  ("commenter_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_parent_comment_id" ON "comments"  ("parent_comment_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_video_id" ON "comments"  ("video_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220522193148)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220522174230),
+(20220522192647),
+(20220522191044),
+(20220522191429);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-22 20:00:46.835956"], ["updated_at", "2022-05-22 20:00:46.835956"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-05-22 20:00:46.839833"], ["key", "environment"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (30.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-1P-migrations_development"[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (35.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-1P-migrations_test"[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (67.1ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_development" ENCODING = 'unicode'[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (67.5ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_test" ENCODING = 'unicode'[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+Migrating to CreateComment (20220522174230)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying NOT NULL, "video_id" integer NOT NULL, "commenter_id" integer NOT NULL, "parent_commenter_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20220522174230_create_comment.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_video_id" ON "comments"  ("video_id")[0m
+  ↳ db/migrate/20220522174230_create_comment.rb:12
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commenter_id" ON "comments"  ("commenter_id")[0m
+  ↳ db/migrate/20220522174230_create_comment.rb:13
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_parent_commenter_id" ON "comments"  ("parent_commenter_id")[0m
+  ↳ db/migrate/20220522174230_create_comment.rb:14
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522174230"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+Migrating to AddParentCommentToComments (20220522191044)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "comments" ADD "parent_comment_id" integer NOT NULL[0m
+  ↳ db/migrate/20220522191044_add_parent_comment_to_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522191044"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+Migrating to RemoveparentCommenterIdFromComments (20220522191429)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "comments" DROP COLUMN "parent_commenter_id"[0m
+  ↳ db/migrate/20220522191429_removeparent_commenter_id_from_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522191429"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+Migrating to ChangeParentCommentIdFromComments (20220522192647)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "comments" DROP COLUMN "parent_comment_id"[0m
+  ↳ db/migrate/20220522192647_change_parent_comment_id_from_comments.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "comments" ADD "parent_comment_id" integer[0m
+  ↳ db/migrate/20220522192647_change_parent_comment_id_from_comments.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522192647"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+Migrating to AddIndexToComments (20220522193148)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_parent_comment_id" ON "comments"  ("parent_comment_id")[0m
+  ↳ db/migrate/20220522193148_add_index_to_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522193148"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/zhilelin/.rbenv/versions/2.5.1/bin/rake:25
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-22 22:28:54.302280"], ["updated_at", "2022-05-22 22:28:54.302280"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (41.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-1P-migrations_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (49.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-1P-migrations_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-1P-migrations_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-1P-migrations_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (177.9ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (88.7ms)[0m  [1m[35mCREATE DATABASE "rails-1P-migrations_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "liker_id" integer NOT NULL, "video_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_liker_id" ON "likes"  ("liker_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_video_id" ON "likes"  ("video_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:27
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "password" character varying NOT NULL, "bio" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:27
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "videos" CASCADE[0m
+  ↳ db/schema.rb:35
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "videos" ("id" bigserial primary key, "name" character varying NOT NULL, "description" text NOT NULL, "uploader_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:35
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200228160222)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-22 22:29:17.489668"], ["updated_at", "2022-05-22 22:29:17.489668"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "liker_id" integer NOT NULL, "video_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_liker_id" ON "likes"  ("liker_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_video_id" ON "likes"  ("video_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:27
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "password" character varying NOT NULL, "bio" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:27
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "videos" CASCADE[0m
+  ↳ db/schema.rb:35
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "videos" ("id" bigserial primary key, "name" character varying NOT NULL, "description" text NOT NULL, "uploader_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:35
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200228160222)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-22 22:29:17.598882"], ["updated_at", "2022-05-22 22:29:17.598882"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.7ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-05-22 22:29:17.606653"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateComment (20220522174230)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying NOT NULL, "video_id" integer NOT NULL, "commenter_id" integer NOT NULL, "parent_commenter_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20220522174230_create_comment.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_video_id" ON "comments"  ("video_id")[0m
+  ↳ db/migrate/20220522174230_create_comment.rb:12
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commenter_id" ON "comments"  ("commenter_id")[0m
+  ↳ db/migrate/20220522174230_create_comment.rb:13
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_parent_commenter_id" ON "comments"  ("parent_commenter_id")[0m
+  ↳ db/migrate/20220522174230_create_comment.rb:14
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522174230"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddParentCommentToComments (20220522191044)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "comments" ADD "parent_comment_id" integer NOT NULL[0m
+  ↳ db/migrate/20220522191044_add_parent_comment_to_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522191044"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to RemoveparentCommenterIdFromComments (20220522191429)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "comments" DROP COLUMN "parent_commenter_id"[0m
+  ↳ db/migrate/20220522191429_removeparent_commenter_id_from_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522191429"]]
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to ChangeParentCommentIdFromComments (20220522192647)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "comments" DROP COLUMN "parent_comment_id"[0m
+  ↳ db/migrate/20220522192647_change_parent_comment_id_from_comments.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "comments" ADD "parent_comment_id" integer[0m
+  ↳ db/migrate/20220522192647_change_parent_comment_id_from_comments.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522192647"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddIndexToComments (20220522193148)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_parent_comment_id" ON "comments"  ("parent_comment_id")[0m
+  ↳ db/migrate/20220522193148_add_index_to_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522193148"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToUser (20220522193840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "email" TO "username"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:4
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "bio"[0m
+  ↳ db/migrate/20220522193840_make_changes_to_user.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522193840"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToVideo (20220522200249)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToVideo (20220522200249)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "videos" RENAME COLUMN "email" TO "name"[0m
+  ↳ db/migrate/20220522200249_make_changes_to_video.rb:4
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to MakeChangesToVideo (20220522200249)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "videos" RENAME COLUMN "name" TO "title"[0m
+  ↳ db/migrate/20220522200249_make_changes_to_video.rb:4
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_videos_on_uploader_id" ON "videos"  ("uploader_id")[0m
+  ↳ db/migrate/20220522200249_make_changes_to_video.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220522200249"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7734563615695547820)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
