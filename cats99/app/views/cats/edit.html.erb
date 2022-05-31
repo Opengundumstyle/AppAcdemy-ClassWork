@@ -1,0 +1,40 @@
+<h1> Add a new to cat! </h1>
+
+<form action="/cats", method="post">
+
+  <label for = "name"> Name</label>
+  <input id ="name" type ="text" name = "cat[name]"> <!-- PREVIOUSLY: <input id ="name", type ="text", name = "cat[name]"> -->
+
+  <br>
+  <label>Sex</label>   
+  <input id = "male" type = "radio" id = "M" name = "cat[sex]" value = "M" checked> 
+  <label for="male">M</label>
+  <input id = "female" type = "radio" id = "F" name = "cat[sex]" value = "F">
+  <label for="female">F</label>
+
+  <br>
+ <label for="color-select">Select cat's color:</label>
+ <select name="cat[color]" id="color-select">
+   <option value=""> --Please select a color-- </option>
+  <%@colors.each do |cath| %>
+  <option value = "<%=cath%>"> <%=cath%>  </option> <!-- PREVIOUSLY: <option value = "<=#{cath}%>"> <%=cath%>  </option> -->
+    <%end%>
+</select>
+<br>
+
+<label for="birth-date">Birthday:</label>
+
+<input type="date" id="birth-date" name="cat[birth_date]"
+       value="2022-05-31"
+       min="1970-01-01" max="2022-05-31">
+  
+<br>
+<label for="story">Please enter a description:</label>
+<br>
+<textarea id="description" name="cat[description]"
+          rows="5" cols="33">
+</textarea>
+
+<input type = "submit" value = "add cat">
+
+</form>
