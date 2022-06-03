@@ -1,0 +1,19 @@
+<h2> User Log In</h2>
+
+<a class ='button' href=<%= new_user_url %>> go sign up </a>
+
+<form action= "<%=session_url %>" method = "post">
+<input type="hidden" name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+<label>username:
+     <input type="text" name="user[username]">
+</label>
+<br>
+<br>
+<label>password:
+     <input type="password" name="user[password]">
+</label>
+<br>
+<br>
+<input type="submit" value = "login this bad boy!">
+</form>
