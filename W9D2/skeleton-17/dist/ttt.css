@@ -1,0 +1,27 @@
+ul{
+  display: flex;
+  width: 300px;
+  height: 90px;
+  flex-wrap: wrap;
+ list-style-type: none;
+}
+
+
+li{
+    background: pink;
+    border:2px solid black;
+    width : 90px;
+    height: 90px;
+    
+}
+
+ul li:hover{
+    background:grey;
+    cursor: pointer;
+     
+}
+
+.mark{
+    font-size:30px;
+}
+
