@@ -1,0 +1,46 @@
+/* PHASE 12: Modal */
+
+.modal{
+  display: none;
+  position: absolute;
+  right: 0;
+  left: 35vw;
+  top: 15vw;
+  bottom: 0;
+}
+
+.modal-screen{
+
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  background: rgba(0,0,0,0.8);
+}
+
+.modal-form{
+  display: flex;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 3;
+
+}
+
+#x-btn{
+  left: 5px;
+  top: 5px;
+}
+
+body .is-open{
+  display: block;
+}
+
+.form-top{
+  display: flex;
+  justify-content: space-between;
+  font-size: 50px;
+}

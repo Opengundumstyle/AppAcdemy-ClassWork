@@ -1,0 +1,32 @@
+body{
+  height: 98vh;
+  width: 98vw;
+}
+
+#root, #root > div {
+  height: 100%;
+}
+
+#root > div{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.tile button{
+
+  width: 100px;
+  height: 100px;
+}
+
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
